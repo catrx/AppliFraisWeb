@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #ccc;
+}
+
+header {
+    background-color: purple;
+    padding: 40px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+table {
+    width: 100%
+}
+
+.container {
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+}
+
+button, input, select, textarea {
+    padding: 7px;
+    width: 100%;
+}
+
+table {
+    margin-bottom: 20px;
+}
+
+tr, td, th {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+footer {
+    background-color: purple;
+    padding-top: 20px;
+    padding-bottom: 8px;
+    color: white;
+}

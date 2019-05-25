@@ -1,0 +1,6 @@
+charset: utf8
+driver: pdo_mysql
+host: "localhost"
+user: "root"
+password: "Sio062019CatrixSoulaques"
+dbname: "gsb_frais"
