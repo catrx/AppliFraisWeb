@@ -95,7 +95,19 @@ include '../private/php/config.php';
                                   <label>Quantite</label>
                                   <input type="text" class="form-control" name="quantite" id="width" required="required" placeholder=" Quantite"/><br/>
                                   <label>Description</label>
+
                                   <input type="text" class="form-control" name="description" id="gap" required="required" placeholder=" Description"/><br/>
+                                      <label>Cabinet</label>
+                                      <select name="cabinet[]" id="cabinet" multiple="multiple">
+                                          <?php
+                                          $sql =  'SELECT idCabinet , adresse , libelle FROM cabinet ';
+                                          foreach  ($DBcon->query($sql) as $row) {
+
+                                          ?>
+                                          <option value="<?php echo $row['idCabinet']  ?>"><?php echo $row['libelle']  ?></option>
+                                          <?php } ?>
+
+                                      </select>
                                   <input type="submit" class="text-center btn btn-outline-primary" value=" Submit " name="submit"/><br />
                                   </form>
                         </div>
@@ -113,11 +125,21 @@ include '../private/php/config.php';
 if(isset($_POST["submit"])){
 $hostname='localhost';
 $username='root';
-$password='Momolabanane123';
+$password='';
+
 
 try {
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // <== add this line
   $sql = "INSERT INTO lignefraisforfait (idVisiteur, mois, idFraisForfait, quantite, description) VALUES ('".$_SESSION["id"]."','".$mois."','".$_POST["typefrais"]."','".$_POST["quantite"]."','".$_POST["description"]."')";
+
+
+
+    foreach  ($_POST["cabinet"] as $row) {
+        $sql1 = "INSERT INTO fraiscabinet (idCabinet , idFiche) VALUES ('".$row."','".$mois."')";
+        echo $sql1;
+        $dbh->query($sql1);
+    }
+
 if ($dbh->query($sql)) {
   header('Location: check_addribbon.php');
   exit();
@@ -135,5 +157,23 @@ echo $e->getMessage();
 
 }
 ?>
+  <script type="text/javascript">
+
+
+      $(document).ready(function() {
+
+          var last_valid_selection = null;
+
+          $('#cabinet').change(function(event) {
+
+              if ($(this).val().length > 2) {
+
+                  $(this).val(last_valid_selection);
+              } else {
+                  last_valid_selection = $(this).val();
+              }
+          });
+      });
+  </script>
 </body>
 </html>

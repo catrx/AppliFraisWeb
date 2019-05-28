@@ -1,7 +1,7 @@
 <?php
 $hostname='localhost';
 $username='root';
-$password='Sio062019CatrixSoulaques';
+$password='';
 $dbname='gsb_frais';
 
 try {

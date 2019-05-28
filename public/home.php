@@ -92,6 +92,24 @@ session_start();
             </div>
         </div>
     </div>
+    <div class="features-boxed">
+        <div class="container">
+            <div class="intro">
+                <h1 class="text-center">Gestion Cabinet</h1>
+            </div>
+            <div class="row justify-content-center features">
+
+                <div class="col-sm-5 col-md-4 col-lg-3 item">
+                    <div class="border">
+                        <div class="box"><i class="fa fa-send icon"></i>
+                            <h3 class="name">Gestion des cabinet</h3>
+                            <p class="description">Ici vous pouvez modifier, supprimer, ajouter des cabinet </p><a href="../public/listcabinet.php" class="learn-more"><br>Acceder a l'outil<br><br></a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 <?php } ?>
 <?php if($_SESSION['ifComptable'] == 2){
 ?>
